@@ -4,6 +4,10 @@
     <title>The AJAXson 5</title>
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <script type="text/javascript" src="request-gif.js"></script>
+    <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
 </head>
 <body>
     <h1>The AJAXson 5</h1>
@@ -11,11 +15,16 @@
     <form id="form-gif-request" />
         <label>What kind of Jackson 5 related gif do you want?</label>
         <input name="tag" type="text"/>
+        <div>
+        <label>Prove you are not a robot by answering this riddle:</label>
+        <input name="captcha" type="text"/>
+        <strong>Jacksons are better than 1.</strong>
+    </div>
         <input type="submit" value="Get my Gif!" />
     </form>
 
     <img id="gif" src="" hidden="true"/>
-    <p id="feedback" hidden="true`"></p>
+    <p id="feedback" hidden="true"></p>
 
 </body>
 </html>
