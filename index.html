@@ -14,7 +14,7 @@
 </head>
 <body>
     <div class="jumbotron">
-        <h1>AJAXson 5</h1>
+        <h1><strong>AJAXson 5</strong></h1>
     </div>
 
     <form id="form-gif-request" />
@@ -26,14 +26,15 @@
             <label>Prove you are not a robot by answering this riddle:</label>
             <div class="input-group">
                 <input name="captcha" type="text" class="form-control"/>
-                <span class="input-group-addon"> Jacksons are better than 1.</span>
+                <span class="input-group-addon">Jacksons are better than 1.</span>
             </div>
+            <div hidden="true" class="alert alert-danger">No gifs for you.</div>
         </div>
         <input type="submit" value="Get my Gif!" class="btn btn-primary"/>
     </form>
 
-    <img id="gif" src="" hidden="true"/>
     <p id="feedback" hidden="true"></p>
+    <img id="gif" src="" hidden="true" class="img-responsive"/>
 
 </body>
 </html>

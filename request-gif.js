@@ -3,8 +3,6 @@
 $(document).ready(function() {
     // register our function as the "callback" to be triggered
     //by the form's submission event
-    //console.log(captcha_ans);
-    //var captcha_error = $("#form-gif-request").append("<p>No gifs for you.</p>");
     $("#form-gif-request").submit(fetchAndDisplayGif)
     // in other words, when the form is submitted,
     //fetchAndDisplayGif() will be executed
@@ -27,9 +25,9 @@ function fetchAndDisplayGif(event) {
 
     var captcha_ans = $("#form-gif-request input[name=captcha]").val();
     if (captcha_ans !== "5"){
-        $("#feedback").text("No gifs for you.");
-        setGifLoadedStatus(false);
+        setValidatedStatus(false);
     } else {
+
         // get the user's input text from the DOM
         var searchQuery = $("#form-gif-request input[name=tag]").val();
 
@@ -41,6 +39,7 @@ function fetchAndDisplayGif(event) {
 
         // make an ajax request for a random GIF
         $.ajax({
+            dataType: 'jsonp',
             url: "https://api.giphy.com/v1/gifs/random",
             data: params, // attach those extra parameters onto the request
             success: function(response) {
@@ -54,6 +53,7 @@ function fetchAndDisplayGif(event) {
                 var image_url = response.data.image_url;
                 $("img").attr("src", image_url);
                 // 2. hide the feedback message and display the image
+                setValidatedStatus(true);
                 setGifLoadedStatus(true);
             },
             error: function() {
@@ -79,6 +79,12 @@ function fetchAndDisplayGif(event) {
  * otherwise: hides the image and displays the feedback label
  */
 function setGifLoadedStatus(isCurrentlyLoaded) {
-    $("#gif").attr("hidden", !isCurrentlyLoaded);
     $("#feedback").attr("hidden", isCurrentlyLoaded);
+    $("#gif").attr("hidden", !isCurrentlyLoaded);
+}
+
+function setValidatedStatus(isValidated) {
+    $(".alert").attr("hidden", isValidated);
+    $("#feedback").attr("hidden", !isValidated);
+    $("#gif").attr("hidden", !isValidated);
 }

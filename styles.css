@@ -4,16 +4,27 @@ body{
 }
 
 .jumbotron{
-	color: black;
+	color: white;
 	text-align: center;
 	font-family: verdana;
+	background-color: #3FA1BF;
+	background-image:url(https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTWVP8g_VVd2m8KDeKR8whw40E-Flc-1T4w07rEaC852kBwp-52);
+	background-size: cover;
+	border-radius: 4px;
 }
 
-#captcha div {
+#captcha {
 	border: 3%;
+	color: black;
 	border-radius: 4px;
 	background-color: #eee;
 	padding: 20px;
+}
+
+.help-block{
+	color: red;
+	padding-top: 20px;
+	font-weight: bold;
 }
 
 #gif {
@@ -21,4 +32,5 @@ body{
 	border-radius: 4px;
 	background-color: #eee;
 	padding: 20px;
+	margin-top:20px;
 }
